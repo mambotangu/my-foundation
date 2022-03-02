@@ -1,4 +1,51 @@
 #!/bin/bash
+destroy_step_10 () {
+  terraform -chdir=10-ccg init
+  terraform -chdir=10-ccg destroy --auto-approve -var-file=terraform.tfvars
+
+  if [ $? != 0 ]; then
+    echo "Error on step 10"
+    exit 1
+  else
+    echo "ccg resources destroyed. "
+    rm -rf ./10-ccg/.terraform*
+  fi
+
+  echo "" > ./10-ccg/provider.tf
+  destroy_step_9;
+}
+
+destroy_step_9 () {
+  terraform -chdir=9-de init
+  terraform -chdir=9-de destroy --auto-approve -var-file=terraform.tfvars
+
+  if [ $? != 0 ]; then
+    echo "Error on step 9"
+    exit 1
+  else
+    echo "de resources destroyed. "
+    rm -rf ./9-de/.terraform*
+  fi
+
+  echo "" > ./9-de/provider.tf
+  destroy_step_8;
+}
+
+destroy_step_8 () {
+  terraform -chdir=8-cis init
+  terraform -chdir=8-cis destroy --auto-approve -var-file=terraform.tfvars
+
+  if [ $? != 0 ]; then
+    echo "Error on step 8"
+    exit 1
+  else
+    echo "cis resources destroyed. "
+    rm -rf ./8-cis/.terraform*
+  fi
+
+  echo "" > ./8-cis/provider.tf
+  destroy_step_7;
+}
 
 destroy_step_7 () {
   terraform -chdir=7-prod init
@@ -124,7 +171,19 @@ destroy_step_1() {
 }
 
 # Determine which step to destroy from
-if [ $# == 0 ] || [ $1 == 7 ]; then
+if [ $# == 0 ] || [ $1 == 10 ]; then
+  destroy_step_10
+fi
+
+if [ $1 == 9 ]; then
+  destroy_step_9
+fi
+
+if [ $1 == 8 ]; then
+  destroy_step_8
+fi
+
+if [ $1 == 7 ]; then
   destroy_step_7
 fi
 

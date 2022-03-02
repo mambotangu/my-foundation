@@ -22,6 +22,9 @@ $(yellowprint '4)') Run 4-dev
 $(yellowprint '5)') Run 5-qa
 $(yellowprint '6)') Run 6-uat
 $(yellowprint '7)') Run 7-prod
+$(yellowprint '8)') Run 8-cis
+$(yellowprint '9)') Run 9-de
+$(yellowprint '10)') Run 10-ccg
 
 $(redprint '0)') Exit
 Choose an option:  "
@@ -69,6 +72,24 @@ Choose an option:  "
         echo "Completed prod"
         mainmenu
         ;;
+    8)
+        echo "Running cis"
+        run_X_env "8-cis"
+        echo "Completed cis"
+        mainmenu
+        ;;
+    9)
+        echo "Running de"
+        run_X_env "9-de"
+        echo "Completed de"
+        mainmenu
+        ;;
+    10)
+        echo "Running ccg"
+        run_X_env "10-ccg"
+        echo "Completed ccg"
+        mainmenu
+        ;;
     s)
         echo "Running setup"
         run_1_bootstrap
@@ -103,6 +124,18 @@ Choose an option:  "
         echo "Running prod"
         run_X_env "7-prod"
         echo "Completed prod"
+
+        echo "Running cis"
+        run_X_env "8-cis"
+        echo "Completed cis"
+
+        echo "Running de"
+        run_X_env "9-de"
+        echo "Completed de"
+
+        echo "Running ccg"
+        run_X_env "10-ccg"
+        echo "Completed ccg"
         mainmenu
         ;;
     0)
@@ -288,6 +321,15 @@ case $THE_ENV in
     ;;
   7-prod)
     PREFIX="tf_state_prod"
+    ;;
+  8-cis)
+    PREFIX="tf_state_cis"
+    ;;
+  9-DE)
+    PREFIX="tf_state_de"
+    ;;
+  10-CCG)
+    PREFIX="tf_state_ccg"
     ;;
 esac
 

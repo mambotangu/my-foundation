@@ -2,9 +2,9 @@
 **/.terraform/*
 .terraform
 
-*/*.tfvars
-*.tfvars
-# .tfstate files
+# */*.tfvars
+# *.tfvars
+ .tfstate files
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl

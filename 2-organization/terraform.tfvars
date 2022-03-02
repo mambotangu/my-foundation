@@ -1,0 +1,8 @@
+domain = "cf-0002.sadaess.com"
+organization_id = "150390553932"
+billing_admin_group  = "grp-gcp-it-org-billing-admins@cf-0002.sadaess.com"
+org_admin_group      = "grp-gcp-it-org-organization-admins@cf-0002.sadaess.com"
+network_admin_group  = "grp-gcp-it-org-network-admins@cf-0002.sadaess.com"
+support_admin_group  = "grp-gcp-it-org-support-admins@cf-0002.sadaess.com"
+auditor_group        = "grp-gcp-it-org-auditors@cf-0002.sadaess.com"
+security_admin_group = "grp-gcp-it-org-security-admins@cf-0002.sadaess.com"

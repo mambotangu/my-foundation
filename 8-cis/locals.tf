@@ -1,5 +1,5 @@
 locals {
-  env               = "d"
+  env               = "c"
   app_name          = "myapp" # APP_CHANGE_ME - Limit to 6 characters
   business_code     = "222ma" # BC_CHANGE_ME  - Limit to 4-6 caracters
   app1_project_name = "prj-${local.business_code}-${local.env}-${local.app_name}"
@@ -8,7 +8,7 @@ locals {
     "compute.googleapis.com"
   ]
   project_terraform_labels = {
-    "env" = "dev"
+    "env" = "cis"
   }
 
   admin_roles = [
